@@ -1,0 +1,49 @@
+Margarets-iMac:SPDigital margaret$ cucumber features/main_page.feature -t @t1
+Feature: verify the main page all the fields
+
+  Background: navigate to the data main page # features/main_page.feature:3
+    Given the user load main page            # features/step_definitions/common_steps.rb:1
+in click_icon, icon:'events per week'found
+
+  @t1
+  Scenario Outline: Click on icon in the middle of the page will redirect to corresponding page # features/main_page.feature:11
+    When the user click on icon "<icon>" in the middle of the page                              # features/main_page.feature:12
+    Then a chart with title "<title>" should display                                            # features/main_page.feature:13
+
+    Examples: 
+      | icon                                  | title                                       |
+      #     | repos per week     | repositories updated per week  |
+      |in fetch_title, title:'events per week'found
+ events per week                       | events per week                             |
+in click_icon, icon:'activities per programming languages'found
+      |in fetch_title, title:'update activities per programming languages'found
+ activities per programming languages  | update activities per programming languages |
+in click_icon, icon:'active user groups'found
+      |in fetch_title, title:'active user groups with > 5 events'found
+ active user groups                    | active user groups with > 5 events          |
+in click_icon, icon:'active repositories'found
+      |in fetch_title, title:'active repos with > 10 updates'found
+ active repositories                   | active repos with > 10 updates              |
+in click_icon, icon:'repositories per programming language'found
+      |in fetch_title, title:'repositories per programming languages'found
+ repositories per programming language | repositories per programming languages      |
+in click_icon, icon:'event day of week'found
+      |in fetch_title, title:'events by day of week'found
+ event day of week                     | events by day of week                       |
+in click_icon, icon:'event per week of month'found
+      |in fetch_title, title:'events per week of month'found
+ event per week of month               | events per week of month                    |
+in click_icon, icon:'event duration'found
+      |in fetch_title, title:'events by duration'found
+ event duration                        | events by duration                          |
+in click_icon, icon:'event time of day'found
+      |in fetch_title, title:'events by time of day'found
+ event time of day                     | events by time of day                       |
+in click_icon, icon:'event locations'found
+      |in fetch_title, title:'popular event locations'found
+ event locations                       | popular event locations                     |
+
+10 scenarios (10 passed)
+30 steps (30 passed)
+0m10.195s
+Margarets-iMac:SPDigital margaret$ 

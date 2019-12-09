@@ -14,7 +14,7 @@ Feature: verify the main page all the fields
 
     Examples:
       | icon               | title                        |
-      | repos per week     | repositories updated per week  |
+ #     | repos per week     | repositories updated per week  |
       | events per week    | events per week |
       | activities per programming languages | update activities per programming languages |
       | active user groups | active user groups with > 5 events |

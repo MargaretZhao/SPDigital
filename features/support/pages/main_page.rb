@@ -13,10 +13,10 @@ class MainPage < BasePage
         icon.click
     end
 
-    def searchBy(expectTitle)
+    def fetch_title()
         title = @browser.h3().text
-        puts("in searchBy, title:'#{title}'found")
-        expect(title).to eq(expectTitle)
+        puts("in fetch_title, title:'#{title}'found")
+        return title
     end
 
 end

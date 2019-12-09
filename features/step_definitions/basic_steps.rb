@@ -8,18 +8,9 @@ end
   
 Then(/^a chart with title "([^"]*)" should display$/) do |title|
   on(MainPage) do |page|
-    # here could specify time want to retry to find the chart title
-    tryt = 1
-    findTitle = false
-    (1..tryt).each do |i|
-      begin
-        page.searchBy(title)
-        findTitle = true
-        break
-      rescue Exception => e
-        puts "Warn #{i}: the chat title '#{title}' not exist"
-        sleep 1
-      end
-    end
+    value = page.fetch_title()
+    #puts("title pass in is = '#{title}'")
+    #puts("value got from web page is = '#{value}'")
+    expect(title).to eq(value)
   end
 end
